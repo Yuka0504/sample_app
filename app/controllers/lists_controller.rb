@@ -8,6 +8,7 @@ class ListsController < ApplicationController
     #1.&2. データを受け取り新規投稿するためのインスタンス作成
     @list = List.new(list_params)
     if @list.save
+      flash[:notice] = "投稿が成功しました"
       redirect_to list_path(@list.id)
     else
       render :new
